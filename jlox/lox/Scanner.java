@@ -168,7 +168,7 @@ class Scanner {
         return source.charAt(current + 1);
     }
 
-    private void isAlpha(char c) {
+    private boolean isAlpha(char c) {
         return (c >= 'a' && c <= 'z') ||
                 (c >= 'A' && c <= 'Z') ||
                 c == '_';
