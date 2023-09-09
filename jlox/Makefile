@@ -7,7 +7,7 @@ compile:
 	javac -d class lox/*.java
 
 run:
-	java -cp class Lox
+	java -cp class lox/Lox
 
 clean:
 	rm -rf class/*
