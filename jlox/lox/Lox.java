@@ -11,8 +11,7 @@ import java.util.List;
 public class Lox {
     static boolean hadError = false;
 
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         if (args.length > 1) {
             System.out.println("Usage: jlox [script]");
             System.exit(64); // Incorrect usage exit code from UNIX(sysexit.h)
@@ -23,15 +22,13 @@ public class Lox {
         }
     }
 
-    private static void runFile(String path) throws IOException
-    {
+    private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
         if (hadError) System.exit(65);
     }
 
-    private static void runPrompt() throws IOException
-    {
+    private static void runPrompt() throws IOException {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(input);
 
@@ -45,8 +42,7 @@ public class Lox {
         }
     }
 
-    private static void run(String source)
-    {
+    private static void run(String source) {
         Scanner scanner = new Scanner(source);
         List<Token> tokens = scanner.scanTokens();
 
@@ -55,13 +51,11 @@ public class Lox {
         }
     }
 
-    static void error(int line, String message)
-    {
+    static void error(int line, String message) {
         report(line, "", message);
     }
 
-    private static void report(int line, String where, String message)
-    {
+    private static void report(int line, String where, String message) {
         System.err.println(
             "[line " + line + "] Error" + where + ": " + message
         );
